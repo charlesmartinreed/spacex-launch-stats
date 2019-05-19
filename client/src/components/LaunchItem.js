@@ -1,5 +1,7 @@
 import React from "react";
 import classNames from "classnames";
+import Moment from "react-moment";
+import { Link } from "react-router-dom";
 
 // yeah, I don't know why this tutorial used the classnames package either. Keeping the inline color styling code here just for demo purposes.
 // <span style={{ color: launch_success ? "green" : "red" }}>
@@ -24,10 +26,14 @@ export default function LaunchItem({
               {mission_name}
             </span>
           </h4>
-          <p>Date: {launch_date_local}</p>
+          <p>
+            Date: <Moment format="YYYY-DD-MM HH:mm">{launch_date_local}</Moment>
+          </p>
         </div>
         <div className="col-md-3">
-          <button className="btn btn-secondary">Launch Details</button>
+          <Link to={`/launch/${flight_number}`} className="btn btn-secondary">
+            Launch Details
+          </Link>
         </div>
       </div>
     </div>
