@@ -1,13 +1,29 @@
 import React from "react";
+import classNames from "classnames";
+
+// yeah, I don't know why this tutorial used the classnames package either. Keeping the inline color styling code here just for demo purposes.
+// <span style={{ color: launch_success ? "green" : "red" }}>
+// 	{mission_name}
 
 export default function LaunchItem({
   launch: { flight_number, mission_name, launch_date_local, launch_success }
 }) {
+  console.log(launch_success);
   return (
     <div className="card card-body mb-3">
       <div className="row">
         <div className="col-md-9">
-          <h4>Mission: {mission_name} </h4>
+          <h4>
+            Mission:
+            <span
+              className={classNames({
+                "text-success": launch_success === true,
+                "text-danger": launch_success === false
+              })}
+            >
+              {mission_name}
+            </span>
+          </h4>
           <p>Date: {launch_date_local}</p>
         </div>
         <div className="col-md-3">
