@@ -18,7 +18,7 @@
     "nodemon": "^1.19.0"
   },
   "scripts": {
-    "start": "yarn server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
